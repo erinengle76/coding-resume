@@ -1,1 +1,4 @@
 
+[submodule "heartrate-prediction-project"]
+	path = heartrate-prediction-project
+	url = https://github.com/erinengle76/D200-Final-Project
