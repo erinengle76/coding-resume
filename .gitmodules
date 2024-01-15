@@ -2,6 +2,3 @@
 [submodule "heartrate-prediction-project"]
 	path = heartrate-prediction-project
 	url = https://github.com/erinengle76/D200-Final-Project
-[submodule "backend/group-project-sp23-group10"]
-	path = backend/group-project-sp23-group10
-	url = https://github.com/UCB-INFO-BACKEND-WEBARCH/group-project-sp23-group10.git
