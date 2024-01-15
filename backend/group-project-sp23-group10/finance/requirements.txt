@@ -1,0 +1,10 @@
+Flask==2.2.3
+requests
+Flask-SQLAlchemy
+postgres
+psycopg2-binary
+Flask-Session
+nasdaq-data-link
+numpy
+pandas
+matplotlib

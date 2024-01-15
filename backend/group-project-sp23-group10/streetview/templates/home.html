@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+  <h1 class="text-center">Welcome, {{ username }}!</h1>
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <div class="jumbotron">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Random Street View Images</title>
+          <style>
+            img {
+              max-width: 100%;
+              height: auto;
+              margin: 10px 0;
+            }
+          </style>
+        </head>
+        <body>
+          Enter a location (e.g. 1600 Amphitheatre Parkway, Mountain View, CA) to see street view images!
+          <form method="POST">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+            <br>
+            <button type="submit">Submit</button>
+          </form>
+  
+          <br>
+            
+          {% if error %}
+          <div class="alert alert-danger" role="alert">
+              {{ error }}
+          </div>
+          {% endif %}
+
+          {% if images %}
+            Images:
+          {% endif %}
+          <div>
+            {% for image in images %}
+              <img src="{{ image }}" alt="Street View Image">
+            {% endfor %}
+          </div>
+        </body>
+      </div>
+    </div>
+  </div>
+{% endblock %}

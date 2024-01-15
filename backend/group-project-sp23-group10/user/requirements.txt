@@ -1,0 +1,10 @@
+Flask==2.2.3
+requests
+Flask-SQLAlchemy
+postgres
+psycopg2-binary
+sendgrid==6.9.7
+numpy
+requests
+Flask-Session
+passlib

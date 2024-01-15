@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+  <h1 class="text-center">Welcome, {{ username }}!</h1>
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <div class="jumbotron">
+        {% if msg %}
+          {{ msg }}<br><br>
+        {% endif %}
+        
+        {% if data %}
+          Data for country code:  <strong>{{ country }}</strong> <br>
+          <iframe src="./static/file.html" height="400" width="600" title="Iframe Example"></iframe>
+        {% endif %}
+        Welcome to top daily news! Enter your preferred country.<br>
+        
+        <form method="post" id="register-form">
+          <input type="text" name="country" id="country-field" placeholder="Country", value="{{ request.form['country'] }}">
+          <button type="submit">Submit</button>
+        </form>
+        <br><br>
+        To see top news for a country, you will need to know its 2-letter ISO 3166-1 Code. Available countries include: 
+        ae, ar, at, au, be, bg, br, ca, ch, cn, co, cu, cz, de, eg, fr, gb, gr, hk, hu, id, ie, il, in, it, jp, kr, lt, 
+        lv, ma, mx, my, ng, nl, no, nz, ph, pl, pt, ro, rs, ru, sa, se, sg, si, sk, th, tr, tw, ua, us, ve, za.
+      </div>
+    </div>
+  </div>
+{% endblock %}

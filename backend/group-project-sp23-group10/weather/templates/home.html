@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+  <h1 class="text-center">Welcome, {{ username }}!</h1>
+	<div class="row">
+    <div class="col-sm-8 offset-sm-2">
+    	<div class="jumbotron">
+        Specify a location and get the current temperature!
+        <form method="POST">
+            <label for="zipcode">Zipcode:</label>
+            <input type="text" id="zipcode" name="zipcode" required>
+            <br>
+            <label for="countrycode">Country Code:</label>
+            <input type="text" id="countrycode" name="countrycode" required>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        
+        <br>
+
+        {{ output }}
+      </div>
+    </div>
+	</div>
+
+{% endblock %}

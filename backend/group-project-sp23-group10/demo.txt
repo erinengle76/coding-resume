@@ -1,0 +1,79 @@
+INTRO PART 1 - Grace (30 seconds)
++ Introduce team
++ Type docker-compose up to get the container to be built
++ Overview of our project
+    * We wanted to hit the basics (user registration, integration of sendgrid API, db to store/persist users) and then allow everyone flexibility
+    to integrate an API that they found interesting. The result is a throwback to early internet startups, where everyone was trying to build
+    a bunch of things and there wasn't a whole lot of cohesion
+
+Intro PART 2 - Pranjal (30 seconds)
++ Roadmap - We have 6 containers and a DB (show on terminal + show on YAML file).
++ Each container makes use of an API
+    * User
+    * Finance
+    * Pokemon
+    * News
+    * Weather
+    * Streetview
+
+DEMO PART 1 (USER API): (45 seconds)
++ go to: http://localhost:5050
+
++ click: "Home"
+
++ click: "Log In"
+++++ enter random username and password and submit ("No account with that username exists")
+
++ click: "Register"
+++++ enter username, verifiable email, password and submit ("We emailed you a verification link. Click the link to verify your account.")
+++++ check table using "psql -U postgres users" in Docker Desktop
+++++ check email and confirm code matches the one in the table
+
++ click: "Log In"
+++++ enter registered username and password and submit ("You need to verify this account before proceeding. Click the link in your email.")
+
+++++ click verification link in email ("You successfully verified your account. Now you can log in.")
+++++ check table using "psql -U postgres users" in Docker Desktop (verification code should be 0)
+
++ click "Log In"
+++++ enter username that doesn't exist ("No account with that username exists")
+++++ enter registered username with wrong password ("Invalid username and/or password.")
+++++ Log In using new username and password
+
++ Repeat above process with a new account in Incognito mode. (Can have multiple separate sessions concurrently)
+
+DEMO PART 1 (FINANCE API): (45 seconds)
++ once logged in, on home page, click "Finance Dashboard" link (redirects to http://localhost:5051)
++ enter symbol (show plot)
++ enter another symbol (show plot)
++ log out
++ log back in
++ click on "Finance Dashboard" and verify that our symbol history shows up (show table on Docker Desktop)
++ repeat process another account
+
+DEMO PART 2 (Pokemon API) Pranjal - 45 seconds:
++ Show what happens when you plug in a real Pokemon
++ Show what happens when you plug in a not real Pokemon
++ Discuss how the API is delivering the data and how you rendered it
+
+DEMO PART 3 (News API) Erin - 45 seconds:
++ Show what happens when different countries are plugged in
++ Show when a false country is plugged in
++ Discuss how API is delivering data and it is being rendered
+
+DEMO PART 4 (Street View API) Sihang - 45 seconds:
++ Plug in real location
++ Plug in false location
++ Discuss what data is being delivered and how it is being rendered
+
+DEMO PART 5 (Weather View API) Grace - 45 seconds:
++ Plug in real location
++ Plug in false location
++ Discuss what data is being delivered and how it is being rendered
+
+CONCLUSION Erin
++ Remarks on how this could be improved for future use
+    * add a real front end
+    * improve data provided by end points (e.g. not just temperature for the weather)
+    * include personalized information in the registration to instead display local weather and news on homepage
+    * allow user to change their passwords if password is forgotten

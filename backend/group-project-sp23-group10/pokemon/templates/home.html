@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+  <h1 class="text-center">Welcome, {{ username }}!</h1>
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <div class="jumbotron">
+        {% if msg %}
+          {{ msg }}<br><br>
+        {% endif %}
+        
+        {% if data %}
+          <div class = "pokemon" style="display: flex;">
+            {% for images in poke[:-1] %}
+              <img src= "{{ images }}", width="300"><br><br>
+            {% endfor %}
+          </div>
+          <b>{{ poke[-1] }}</b>
+          <br><br>
+        {% endif %}
+        Welcome to your Pokemon dashboard! Enter a Pokemon name.<br>
+        
+        <form method="post" id="register-form">
+          <input type="text" name="pokemon" id="pokemon-field" placeholder="Pokemon", value="{{ request.form['pokemon'] }}">
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+  <h1 class="text-center">Welcome, {{ username }}!</h1>
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <div class="jumbotron">
+        {% if msg %}
+          {{ msg }}<br><br>
+        {% endif %}
+        
+        {% if data %}
+          Data for {{ symbols[0] }}: <br>
+          <img src='../static/my_plot.png', width="600"><br><br>
+        {% endif %}
+
+        Welcome to your financial dashboard! Enter a new symbol.<br>
+        
+        <form method="post" id="register-form">
+          <input type="text" name="symbol" id="symbol-field" placeholder="Symbol", value="{{ request.form['symbol'] }}">
+          <button type="submit">Submit</button>
+        </form>
+
+        <br>
+        Previous symbols you looked up: 
+        <ul>
+        {% for row in symbols %}
+          <li>{{ row }}</li>
+        {% endfor %}
+        </ul>
+
+        <br><br>
+        To download a dataset, you will need to know its "Time-Series Code" (e.g. "WIKI/FB"). Every code has 2 parts: 
+        the database code ("WIKI") which specifies where the data comes from, and the dataset code ("FB") which 
+        identifies the specific time series you want. You can find Time-Series Codes on: https://data.nasdaq.com/search.
+      </div>
+    </div>
+  </div>
+{% endblock %}

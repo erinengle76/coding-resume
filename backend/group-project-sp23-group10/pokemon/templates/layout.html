@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <title>Final Project App | {% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <h5 class="my-0 mr-md-auto font-weight-normal">INFO 253B: Final Project</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/home" title="Home">Home</a>
+        <a class="p-2 text-dark" href="/logout">Log Out</a>
+      </nav>
+    </div>
+    <div class="container">
+      {% block body %}{% endblock %}
+    </div>
+    <footer class="text-center">Team Members: Sathvik Kolli, Erin Jones, Sihang Liu, Grace Roseman, Pranjal Sinha.
+  </body>
+</html>

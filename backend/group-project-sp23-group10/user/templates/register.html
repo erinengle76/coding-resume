@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+  <h1 class="text-center">Register</h1>
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+      <div class="jumbotron">
+        {% if msg %}
+          {{ msg }}<br><br>
+        {% endif %}
+
+        {% if successSent %}
+          We emailed you a verification link. Click the link to verify your account.
+        {% elif successVerified %}
+          You successfully verified your account. Now you can <a class="p text-dark" href="/login">log in</a>.
+        {% else %}
+          <form method="post" id="register-form">
+            <input type="text" name="username" id="username-field" placeholder="Username", value="{{ request.form['username'] }}">
+            <input type="email" name="email" id="email-field" placeholder="Email", value="{{ request.form['email'] }}">
+            <input type="password" name="password" id="password-field"placeholder="Password", value="{{ request.form['password'] }}">
+            <button type="submit">Submit</button>
+          </form>
+
+          <div id="register-first-msg-holder">
+            <p id="register-first-msg"><br>Already have an account? <a class="p text-dark" href="/login">Login</a>.</p>
+          </div>
+        {% endif %} 
+      </div>
+    </div>
+  </div>
+{% endblock %}

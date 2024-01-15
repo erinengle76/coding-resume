@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+  {% if username %}
+    <h1 class="text-center">Welcome, {{ username }}!</h1>
+  {% else %}
+    <h1 class="text-center">Welcome!</h1>
+  {% endif %}
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+      <div class="jumbotron">
+        Welcome to our final project for INFO 253B. Our site contains:
+        {% if username %}
+          <ul>
+            <li><a class="p text-dark" href="/finance">Finance Dashboard</a></li>
+            <li><a class="p text-dark" href="/pokemon">Pokemon Dashboard</a></li>
+            <li><a class="p text-dark" href="/news">News Dashboard</a></li>
+            <li><a class="p text-dark" href="/streetview">Street View Dashboard</a></li>
+            <li><a class="p text-dark" href="/weather">Weather Dashboard</a></li>
+          </ul>
+        {% else %}
+          <ul>
+            <li>Finance Dashboard</li>
+            <li>Pokemon Dashboard</li>
+            <li>News Dashboard</li>
+            <li>Street View Dashboard</li>
+            <li>Weather Dashboard</li>
+          </ul>
+        {% endif %}  
+
+        {% if username %}
+        {% else %}
+          If this is your first time accessing our site, please 
+          <a class="p text-dark" href="/register">register</a>. 
+          <br><br>
+          If not, <a class="p text-dark" href="/login">log in</a> and have fun!
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
